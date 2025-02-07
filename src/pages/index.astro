@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import TeamDemos from '../components/TeamDemos';
+import TabGroup from '../components/TabGroup';
+import MarketingSection from '../components/MarketingSection';
+import ScrollingText from '../components/ScrollingText';
+---
+
+<Layout title="Arcade Clone">
+  <main>
+    <Navbar client:load />
+    <TeamDemos />
+    <TabGroup client:load />
+    <MarketingSection client:load />
+    <ScrollingText client:load />
+  </main>
+</Layout>
