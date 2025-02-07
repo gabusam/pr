@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: <Globe2 className="h-6 w-6" />,
-    title: "Global CDN",
-    description: "Lightning-fast content delivery across 200+ locations worldwide"
+    title: "Gabe is building this!",
+    description: "How long is he going to take to learn this?"
   },
   {
     icon: <Zap className="h-6 w-6" />,
