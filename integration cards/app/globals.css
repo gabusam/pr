@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 31, 31, 31;
+  --background-rgb: 246, 245, 241;
+  --card-shadow-color: 31, 31, 31;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+@layer utilities {
+  .font-verlag-bold {
+    font-family: var(--font-verlag-bold);
+    letter-spacing: 1px;
+  }
+  .font-verlag-book {
+    font-family: var(--font-verlag-book);
+    letter-spacing: 1px;
+  }
+}
+
+@layer components {
+  .card-hover-effect {
+    @apply transition-all duration-500 ease-out relative;
+    transform: translateZ(0);
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.9)
+    );
+    box-shadow: 
+      0 4px 6px -1px rgba(var(--card-shadow-color), 0.05),
+      0 2px 4px -1px rgba(var(--card-shadow-color), 0.03),
+      0 0 0 1px rgba(var(--card-shadow-color), 0.02);
+  }
+  
+  .card-hover-effect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    padding: 2px;
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.1)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  .card-hover-effect:hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow:
+      0 12px 24px -8px rgba(var(--card-shadow-color), 0.12),
+      0 8px 16px -6px rgba(var(--card-shadow-color), 0.08),
+      0 0 0 1px rgba(var(--card-shadow-color), 0.02);
+  }
+  
+  .card-hover-effect::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6px;
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+  }
+  
+  .card-hover-effect:hover::after {
+    opacity: 1;
+  }
+}
