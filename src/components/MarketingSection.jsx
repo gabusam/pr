@@ -64,7 +64,7 @@ export default function MarketingSection() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </div>
-            <span className="text-sm font-medium whitespace-nowrap">Up to 5x trial conversion</span>
+            <span className="text-sm font-medium whitespace-nowrap">More than 2x increase in new customers</span>
           </div>
         </div>
       </div>
