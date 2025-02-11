@@ -1,15 +1,31 @@
+import { useEffect, useState } from 'react'
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu"
 import { Button } from "./ui/button"
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className="flex justify-center pt-4 px-4">
-      <header className="bg-white rounded-2xl shadow-sm border w-full max-w-7xl">
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-md"></div>
+      <header className={`relative max-w-7xl mx-auto px-4 transition-all duration-200 ${
+        isScrolled ? 'py-2 border rounded-2xl mx-4 my-4 shadow-sm bg-white' : ''
+      }`}>
         <nav className="px-6">
           <div className="flex items-center justify-between h-[72px]">
             <div className="flex items-center gap-10">
               <img 
-                src="/profile-rankings-logo.png" 
+                src="/logo.svg" 
                 alt="Profile Rankings" 
                 className="h-8"
               />

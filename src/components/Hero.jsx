@@ -10,7 +10,7 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 shadow-lg">
+          <div className="bg-gradient-to-br from-blue-5 to-blue-50 rounded-2xl p-1 shadow-lg">
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="aspect-video bg-gray-100">
                 <img 
@@ -28,7 +28,7 @@ export default function Hero() {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </div>
-            <span className="text-sm font-medium whitespace-nowrap">Up to 5x trial conversion</span>
+            <span className="text-sm font-medium whitespace-nowrap">More than 2x increase in new customers</span>
           </div>
         </div>
       </div>
