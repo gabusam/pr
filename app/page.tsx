@@ -1,185 +1,147 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { CheckCircle2, Code2, Cpu, Globe2, Layers, Zap } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Database, FileText, Mail, MessageSquare, Phone, PieChart, Search, Settings, Share2, Shield, Target, Users } from 'lucide-react';
+import { verlagBold, verlagBook } from './fonts';
 
-const features = [
+const integrations = [
   {
-    icon: <Globe2 className="h-6 w-6" />,
-    title: "Gabe is building this!",
-    description: "How long is he going to take to learn this?"
+    name: 'LinkedIn',
+    description: 'Import contacts and companies from LinkedIn.',
+    image: 'https://clay.earth/images/integrations/linkedin.svg'
   },
   {
-    icon: <Zap className="h-6 w-6" />,
-    title: "Real-time Updates",
-    description: "Instant synchronization across all connected devices"
+    name: 'Salesforce',
+    description: 'Sync contacts and accounts bi-directionally.',
+    image: 'https://clay.earth/images/integrations/salesforce.svg'
   },
   {
-    icon: <Code2 className="h-6 w-6" />,
-    title: "API Integration",
-    description: "Seamless integration with your existing tech stack"
+    name: 'HubSpot',
+    description: 'Keep your HubSpot CRM in sync with Clay.',
+    image: 'https://clay.earth/images/integrations/hubspot.svg'
   },
   {
-    icon: <Layers className="h-6 w-6" />,
-    title: "Scalable Infrastructure",
-    description: "Built to handle millions of requests without breaking a sweat"
-  }
-];
-
-const pricing = [
-  {
-    title: "Starter",
-    price: "$29",
-    features: ["5 Team Members", "10GB Storage", "Basic Analytics", "24/7 Support"],
-    popular: false
+    name: 'Apollo',
+    description: 'Enrich your contacts with data from Apollo.',
+    image: 'https://clay.earth/images/integrations/apollo.svg'
   },
   {
-    title: "Pro",
-    price: "$79",
-    features: ["15 Team Members", "50GB Storage", "Advanced Analytics", "Priority Support"],
-    popular: true
+    name: 'Clearbit',
+    description: 'Get company and person data from Clearbit.',
+    image: 'https://clay.earth/images/integrations/clearbit.svg'
   },
   {
-    title: "Enterprise",
-    price: "Custom",
-    features: ["Unlimited Team Members", "Unlimited Storage", "Custom Analytics", "Dedicated Support"],
-    popular: false
+    name: 'Gmail',
+    description: 'Import contacts and sync email activity.',
+    image: 'https://clay.earth/images/integrations/gmail.svg'
+  },
+  {
+    name: 'Slack',
+    description: 'Get notifications and updates in Slack.',
+    image: 'https://clay.earth/images/integrations/slack.svg'
+  },
+  {
+    name: 'Zapier',
+    description: 'Connect Clay to thousands of apps.',
+    image: 'https://clay.earth/images/integrations/zapier.svg'
+  },
+  {
+    name: 'Notion',
+    description: 'Sync your Clay data with Notion databases.',
+    image: 'https://clay.earth/images/integrations/notion.svg'
+  },
+  {
+    name: 'Analytics',
+    description: 'Track and analyze your contact data.',
+    icon: PieChart
+  },
+  {
+    name: 'CRM',
+    description: 'Manage customer relationships effectively.',
+    icon: Users
+  },
+  {
+    name: 'Email Marketing',
+    description: 'Send targeted email campaigns.',
+    icon: Mail
+  },
+  {
+    name: 'Database',
+    description: 'Store and manage your data securely.',
+    icon: Database
+  },
+  {
+    name: 'Search',
+    description: 'Find contacts and companies quickly.',
+    icon: Search
+  },
+  {
+    name: 'Security',
+    description: 'Protect your data with advanced security.',
+    icon: Shield
+  },
+  {
+    name: 'Reports',
+    description: 'Generate detailed business reports.',
+    icon: FileText
   }
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <main className={`min-h-screen bg-[#F6F5F1] ${verlagBook.variable} ${verlagBold.variable}`}>
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 z-0" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-primary mb-6">
-              Build Faster, Scale Better
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              The modern platform for building and scaling your SaaS application.
-              Deploy in minutes, scale to millions.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <Button size="lg">Get Started</Button>
-              <Button size="lg" variant="outline">Learn More</Button>
-            </div>
-          </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-[28px] tracking-[1px] font-verlag-bold text-[#1F1F1F] mb-6 uppercase">
+            Integrations
+          </h1>
+          <p className="text-[28px] tracking-[1px] font-verlag-book text-[#1F1F1F] mb-12">
+            Clay integrates with the tools you already use to enrich your data and take action.
+          </p>
         </div>
-      </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-secondary/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4">Everything you need to scale</h2>
-            <p className="text-muted-foreground">
-              Built by developers, for developers. Simple yet powerful.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                  <div className="mb-4 text-primary">{feature.icon}</div>
-                  <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4">Simple, transparent pricing</h2>
-            <p className="text-muted-foreground">
-              No hidden fees. No surprises. Start building for free.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricing.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className={`p-8 h-full ${plan.popular ? 'border-primary shadow-lg' : ''}`}>
-                  {plan.popular && (
-                    <div className="text-primary text-sm font-semibold mb-2">Most Popular</div>
+        {/* Integration Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+          {integrations.map((integration, i) => (
+            <div 
+              key={i}
+              className="card-hover-effect h-[200px] rounded-[6px] p-6 group"
+            >
+              <div className="flex items-start justify-between mb-5">
+                <div className="h-12 w-12 bg-[#F6F5F1] rounded-lg flex items-center justify-center">
+                  {integration.image ? (
+                    <img 
+                      src={integration.image} 
+                      alt={integration.name}
+                      className="h-6 w-6 object-contain"
+                      srcSet={`${integration.image} 1x, ${integration.image} 2x`}
+                    />
+                  ) : integration.icon && (
+                    <integration.icon className="h-6 w-6 text-[#1F1F1F]" />
                   )}
-                  <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
-                  <div className="text-3xl font-bold mb-6">{plan.price}<span className="text-muted-foreground text-sm font-normal">/month</span></div>
-                  <ul className="space-y-4 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
-                    Get Started
-                  </Button>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                </div>
+                <ArrowRight className="h-5 w-5 text-[#1F1F1F] opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-90" />
+              </div>
+              <h3 className="text-[20px] tracking-[1px] font-verlag-bold text-[#D4733E] mb-3">
+                {integration.name}
+              </h3>
+              <p className="text-[16px] tracking-[1px] font-verlag-book text-[#1F1F1F] leading-relaxed">
+                {integration.description}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-              Join thousands of developers who are already building the future with our platform.
-            </p>
-            <Button size="lg" variant="secondary">
-              Start Building Now
-            </Button>
-          </motion.div>
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-[28px] tracking-[1px] font-verlag-book text-[#1F1F1F] mb-6">
+            Don't see what you're looking for?
+          </p>
+          <button className="inline-flex items-center justify-center px-6 py-3 border border-[#1F1F1F] rounded-lg text-[28px] tracking-[1px] font-verlag-bold text-[#1F1F1F] hover:bg-[#1F1F1F] hover:text-white transition-colors duration-300">
+            Request an integration
+          </button>
         </div>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 }
